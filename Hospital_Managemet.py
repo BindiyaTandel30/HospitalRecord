@@ -15,7 +15,8 @@ cur.execute(s)
 
 #open text file for read data in read only mode
 try:
-    f=open("customer_record.txt","r")
+    fname=input("Please enter text file name: ")
+    f=open(fname,"r")
     for line in f:
         data=line.split("|")    #split line with "|" ,It will return list of words
         if(data[1]=="D"):       #to ignore Header and Trailer record
