@@ -4,8 +4,13 @@ import mysql.connector as sqlc
 mydb=sqlc.connect(
     host="localhost",
     user="root",
-    password="" )
+    password="")
 
 cur=mydb.cursor()
-s="CREATE DATABASE customer_record"
+s="CREATE OR REPLACE DATABASE customer_record"
 cur.execute(s)
+
+#read data
+f=open("customer_record.txt","r")
+for line in f:
+    data=line.split("|")
